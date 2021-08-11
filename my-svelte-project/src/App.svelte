@@ -2,7 +2,7 @@
 	import Timer from "./Timer.svelte";
 	import Workout from "./Workout.svelte";
 
-	export let name;
+	// export let name;
 </script>
 
 <main>

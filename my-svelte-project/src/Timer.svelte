@@ -86,7 +86,7 @@
         flex-direction: column;
         justify-content: center;
     }
-    h1:hover {
+    .timer:hover {
         background-color: #ff6532;
     }
 
