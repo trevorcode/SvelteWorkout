@@ -67,8 +67,8 @@
             }
         }, 50);
     }
-    var startAudio = new Audio('/sounds/start.wav');
-    var endAudio = new Audio('/sounds/stop.wav');
+    var startAudio = new Audio('sounds/start.wav');
+    var endAudio = new Audio('sounds/stop.wav');
 
 </script>
 
