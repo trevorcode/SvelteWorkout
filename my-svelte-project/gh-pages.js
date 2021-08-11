@@ -1,3 +1,5 @@
+//https://blog.stranianelli.com/svelte-et-github-english/
+
 var ghpages = require('gh-pages');
 
 ghpages.publish(
