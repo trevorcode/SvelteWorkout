@@ -1,18 +1,3 @@
-
-
-<div>
-    <label for="workoutTime">Workout</label>
-    <input id="workoutTime" bind:value={workoutTime} type="number" />
-</div>
-<div>
-    <label for="cooldownTime">Cooldown</label>
-    <input id="cooldownTime" bind:value={cooldownTime} type="number" />
-</div>
-<div class="timerContainer">
-<span class="timer" on:click={startTimer}>
-    {time.toFixed(2)}
-</span>
-</div>
 <!-- <button on:click={startTimer}>
     {#if timerState != timerStates.WAITING}
         Stop
@@ -20,7 +5,6 @@
         Start
     {/if}
 </button> -->
-
 <script>
     const timerStates = {
         WAITING: "waiting",
@@ -45,8 +29,9 @@
             timerState = timerStates.WAITING;
             return;
         }
-        
-        startAudio.play();
+
+        soundEffect.src = "sounds/start.wav";
+        soundEffect.play();
         timerState = timerState.WORKOUT;
 
         intervalTimer = setInterval(function () {
@@ -58,23 +43,36 @@
                 ) {
                     time = workoutTime;
                     timerState = timerStates.WORKOUT;
-                    startAudio.play();
+                    soundEffect.src = "sounds/start.wav";
+                    soundEffect.play();
                 } else {
                     time = cooldownTime;
                     timerState = timerStates.COOLDOWN;
-                    endAudio.play();
+                    soundEffect.src = "sounds/stop.wav";
+                    soundEffect.play();
                 }
             }
         }, 50);
     }
-    var startAudio = new Audio('sounds/start.wav');
-    var endAudio = new Audio('sounds/stop.wav');
-
 </script>
+
+<div>
+    <label for="workoutTime">Workout</label>
+    <input id="workoutTime" bind:value={workoutTime} type="number" />
+</div>
+<div>
+    <label for="cooldownTime">Cooldown</label>
+    <input id="cooldownTime" bind:value={cooldownTime} type="number" />
+</div>
+<div class="timerContainer">
+    <span class="timer" on:click={startTimer}>
+        {time.toFixed(2)}
+    </span>
+</div>
 
 <style>
     .timerContainer {
-        display:flex;
+        display: flex;
         align-items: center;
         justify-content: center;
     }
@@ -88,7 +86,7 @@
         font-weight: 100;
         cursor: pointer;
         color: White;
-        display:flex;
+        display: flex;
         flex-direction: column;
         justify-content: center;
     }
@@ -96,7 +94,8 @@
         background-color: #ff6532;
     }
 
-    input, label {
-        display:inline-block;
+    input,
+    label {
+        display: inline-block;
     }
 </style>
