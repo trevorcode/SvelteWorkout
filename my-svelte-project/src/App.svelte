@@ -5,10 +5,6 @@
 	// export let name;
 </script>
 
-<svelte:head>
-	<base href="SvelteWorkout">
-</svelte:head>
-
 <main>
 	<Timer></Timer>
 	<Workout></Workout>

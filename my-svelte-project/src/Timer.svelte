@@ -45,7 +45,8 @@
             timerState = timerStates.WAITING;
             return;
         }
-
+        
+        startAudio.play();
         timerState = timerState.WORKOUT;
 
         intervalTimer = setInterval(function () {
@@ -57,13 +58,18 @@
                 ) {
                     time = workoutTime;
                     timerState = timerStates.WORKOUT;
+                    startAudio.play();
                 } else {
                     time = cooldownTime;
                     timerState = timerStates.COOLDOWN;
+                    endAudio.play();
                 }
             }
         }, 50);
     }
+    var startAudio = new Audio('/sounds/start.wav');
+    var endAudio = new Audio('/sounds/stop.wav');
+
 </script>
 
 <style>
