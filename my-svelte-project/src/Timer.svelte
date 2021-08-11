@@ -19,6 +19,8 @@
     var timerState = timerStates.WAITING;
 
     var intervalTimer = null;
+    
+    var soundEffect = new Audio();
 
     function startTimer() {
         time = workoutTime;
